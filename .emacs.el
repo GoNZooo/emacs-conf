@@ -29,6 +29,9 @@
 ;;; Annotate.el
 (require 'annotate)
 
+;;; auto-mode helper functions
+(require 'add-auto-mode)
+
 ;;; Auto-indentation
 (require 'auto-indent-hooks)
 (add-auto-indentation)
@@ -37,11 +40,9 @@
 (keyboard-translate ?\C-x ?\C-u)
 (keyboard-translate ?\C-u ?\C-x)
 
-;;; Binds for prog-modes.
-(global-set-key [(control f1)] 'scheme-mode)
-
 ;;; Quack (racket-stuff)
 (require 'quack)
+(add-auto-mode ".rkt" 'scheme-mode)
 
 ;;; Color-themes
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el/color-theme.el")
