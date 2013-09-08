@@ -26,23 +26,21 @@
 (global-set-key (kbd "s-t") 'backward-paragraph)
 (global-set-key (kbd "s-n") 'forward-paragraph)
 
-;;; Annotate.el
+;;; annotate.el
 (require 'annotate)
 
-;;; auto-mode helper functions
-(require 'add-auto-mode)
-
-;;; Auto-indentation
-(require 'auto-indent-hooks)
+;;; Miscellaneous helper functions
+(require 'helper-funcs)
 (add-auto-indentation)
+
+;;; Quack (racket-stuff)
+(require 'quack)
+(add-auto-mode ".rkt" 'scheme-mode) ; explained in helper-funcs.el
 
 ;;; Swap C-u with C-x (for svorak, C-u == C-f)
 (keyboard-translate ?\C-x ?\C-u)
 (keyboard-translate ?\C-u ?\C-x)
 
-;;; Quack (racket-stuff)
-(require 'quack)
-(add-auto-mode ".rkt" 'scheme-mode)
 
 ;;; Color-themes
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el/color-theme.el")
