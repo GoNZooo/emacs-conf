@@ -1,3 +1,6 @@
+;;; Windows key is the new meta
+(setq x-super-keysym 'meta)
+
 ;;; Set up load-directory.
 (let ((default-directory "~/.emacs-load/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -23,8 +26,8 @@
 (global-set-key (kbd "C-ö") 'backward-char)
 (global-set-key (kbd "C-p") 'forward-char)
 ; Paragraphs (win + t/n)
-(global-set-key (kbd "s-t") 'backward-paragraph)
-(global-set-key (kbd "s-n") 'forward-paragraph)
+(global-set-key (kbd "M-t") 'backward-paragraph)
+(global-set-key (kbd "M-n") 'forward-paragraph)
 
 ;;; annotate.el
 (require 'annotate)
