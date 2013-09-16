@@ -1,18 +1,9 @@
 ;;; Windows key is the new meta
 (setq x-super-keysym 'meta)
 
-;;; Set up load-directory.
-(let ((default-directory "~/.emacs-load/"))
-  (normal-top-level-add-subdirs-to-load-path))
-
-;;; Package management with marmalade.
-(require 'package)
-(add-to-list 'package-archives
-            '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
-;;; Rebind help-map
-(global-set-key (kbd "C-x C-h") help-map)
+;;; Swap C-u with C-x (for svorak, C-u == C-f)
+(keyboard-translate ?\C-x ?\C-u)
+(keyboard-translate ?\C-u ?\C-x)
 
 ;;; Prev/next-binds.
 ;
@@ -29,21 +20,38 @@
 (global-set-key (kbd "M-t") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 
+;;; Windmove commands
+;
+; Up/down
+(global-set-key (kbd "C-x t") 'windmove-up)
+(global-set-key (kbd "C-x n") 'windmove-down)
+; Left/right
+(global-set-key (kbd "C-x å") 'windmove-left)
+(global-set-key (kbd "C-x ä") 'windmove-right)
+
+;;; Rebind help-map
+(global-set-key (kbd "C-x C-h") help-map)
+
+;;; Set up load-directory.
+(let ((default-directory "~/.emacs-load/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+;;; Package management with marmalade.
+(require 'package)
+(add-to-list 'package-archives
+            '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
 ;;; annotate.el
 (require 'annotate)
 
 ;;; Miscellaneous helper functions
 (require 'helper-funcs)
-(add-auto-indentation '(emacs-lisp-mode-hook python-mode-hook))
+(add-auto-indentation)
 
 ;;; Quack (racket-stuff)
 (require 'quack)
-(add-auto-mode ".rkt" 'scheme-mode) ; explained in helper-funcs.el
-
-;;; Swap C-u with C-x (for svorak, C-u == C-f)
-(keyboard-translate ?\C-x ?\C-u)
-(keyboard-translate ?\C-u ?\C-x)
-
+(add-auto-mode ".rkt" 'scheme-mode)
 
 ;;; Color-themes
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el/color-theme.el")
