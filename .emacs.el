@@ -47,7 +47,7 @@
 
 ;;; Miscellaneous helper functions
 (require 'helper-funcs)
-(add-auto-indentation)
+(add-auto-indentation '(python-mode-hook emacs-lisp-mode-hook))
 
 ;;; Quack (racket-stuff)
 (require 'quack)
