@@ -19,18 +19,28 @@
 ; Paragraphs (win + t/n)
 (global-set-key (kbd "M-t") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
+; S-expressions (win + å/ä)
+(global-set-key (kbd "M-å") 'backward-sexp)
+(global-set-key (kbd "M-ä") 'forward-sexp)
 
 ;;; Windmove commands
 ;
 ; Up/down
-(global-set-key (kbd "C-x t") 'windmove-up)
-(global-set-key (kbd "C-x n") 'windmove-down)
+(global-set-key (kbd "C-x C-t") 'windmove-up)
+(global-set-key (kbd "C-x C-n") 'windmove-down)
 ; Left/right
-(global-set-key (kbd "C-x å") 'windmove-left)
-(global-set-key (kbd "C-x ä") 'windmove-right)
+(global-set-key (kbd "C-x C-å") 'windmove-left)
+(global-set-key (kbd "C-x C-ä") 'windmove-right)
 
 ;;; Rebind help-map
 (global-set-key (kbd "C-x C-h") help-map)
+
+;;; Set thresholds for when to split which direction
+(setq split-height-threshold nil) ; no threshold
+(setq split-width-threshold 80) ; at most 2 80 column windows at once
+
+;;; Magit
+(global-set-key (kbd "C-x C-g") 'magit-status)
 
 ;;; Set up load-directory.
 (let ((default-directory "~/.emacs-load/"))
@@ -40,6 +50,10 @@
 (require 'package)
 (add-to-list 'package-archives
             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+            '("geiser" . "http://download.savannah.gnu.org/releases/geiser/packages"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;;; annotate.el
