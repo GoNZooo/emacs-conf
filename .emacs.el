@@ -81,6 +81,7 @@
 (require 'column-marker)
 (add-hook 'scheme-mode-hook (lambda () (interactive) (column-marker-1 80)))
 (global-set-key [?\C-c ?m] 'column-marker-1)
+
 ;;; Color-themes
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el/color-theme.el")
 (require 'color-theme)
