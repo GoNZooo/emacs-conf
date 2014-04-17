@@ -19,9 +19,9 @@
 ; Paragraphs (win + t/n)
 (global-set-key (kbd "M-t") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
-; S-expressions (win + å/ä)
-(global-set-key (kbd "M-å") 'backward-sexp)
-(global-set-key (kbd "M-ä") 'forward-sexp)
+; Lists (ctrl + d/h)
+(global-set-key (kbd "C-d") 'backward-list)
+(global-set-key (kbd "C-h") 'forward-list)
 
 ;;; Windmove commands
 ;
@@ -31,6 +31,47 @@
 ; Left/right
 (global-set-key (kbd "C-x C-å") 'windmove-left)
 (global-set-key (kbd "C-x C-ä") 'windmove-right)
+
+
+;;; Bulgarian binds
+;
+;   Save/Find Buffer/File
+(global-set-key (kbd "C-ф C-ъ") 'find-file)
+(global-set-key (kbd "C-ф C-;") 'save-buffer)
+(global-set-key (kbd "C-ф C-н") 'kill-region)
+;  Copy/Paste
+(global-set-key (kbd "C-,") 'kill-region)
+(global-set-key (kbd "C-т") 'yank)
+(global-set-key (kbd "M-,") 'kill-ring-save)
+;   Start/End of line
+(global-set-key (kbd "C-а") 'beginning-of-line)
+(global-set-key (kbd "C-д") 'end-of-line)
+;;; Prev/next-binds.
+;
+; Lines (ctrl + t/n)
+(global-set-key (kbd "C-к") 'previous-line)
+(global-set-key (kbd "C-л") 'next-line)
+; Words (ctrl + å/ä)
+(global-set-key (kbd "C-я") 'backward-word)
+(global-set-key (kbd "C-в") 'forward-word)
+; Chars (ctrl + ö/p)
+(global-set-key (kbd "C-е") 'backward-char)
+(global-set-key (kbd "C-р") 'forward-char)
+; Paragraphs (win + t/n)
+(global-set-key (kbd "M-к") 'backward-paragraph)
+(global-set-key (kbd "M-л") 'forward-paragraph)
+; Lists (ctrl + d/h)
+(global-set-key (kbd "C-х") 'backward-list)
+(global-set-key (kbd "C-й") 'forward-list)
+
+;;; Windmove commands
+;
+; Up/down
+(global-set-key (kbd "C-ф C-к") 'windmove-up)
+(global-set-key (kbd "C-ф C-л") 'windmove-down)
+; Left/right
+(global-set-key (kbd "C-ф C-я") 'windmove-left)
+(global-set-key (kbd "C-ф C-в") 'windmove-right)
 
 ;;; Rebind help-map
 (global-set-key (kbd "C-x C-h") help-map)
@@ -81,7 +122,6 @@
 (require 'column-marker)
 (add-hook 'scheme-mode-hook (lambda () (interactive) (column-marker-1 80)))
 (global-set-key [?\C-c ?m] 'column-marker-1)
-
 ;;; Color-themes
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/emacs-goodies-el/color-theme.el")
 (require 'color-theme)
